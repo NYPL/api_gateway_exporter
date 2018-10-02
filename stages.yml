@@ -1,0 +1,6 @@
+- name: development
+  stage_id: '1234'
+- name: qa
+  stage_id: '1234'
+- name: production
+  stage_id: '1234'
