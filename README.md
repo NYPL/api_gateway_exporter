@@ -8,9 +8,17 @@ This app can be called by a scheduler and:
 
 ## Installing / Running Locally
 
+### Installing
+
 1.  `cp .env.example .env`
 2.  `docker-compose build`
 3.  `docker-compose up`
+
+### Debugging
+
+You can run the container and use pry.
+To get into the container run `docker-compose run gateway_exporter bash`.  
+Then, inside the container: `cd /opt/api_gateway_exporter && ./bin/export.rb`
 
 ## Deployment
 
