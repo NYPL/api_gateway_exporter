@@ -8,6 +8,10 @@ This app can be called by a scheduler and:
 
 ## Installing / Running Locally
 
+1.  `cp .env.example .env`
+2.  `docker-compose build`
+3.  `docker-compose up`
+
 ## Stretch Goals
 
 If the application detects a configuration change - it will commit the code to a branch and open a pull request. This alerts team mates about the configuration change and gives the chance to review it.
