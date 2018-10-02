@@ -23,7 +23,7 @@ CMD ["./bin/export.rb"]
 FROM production AS development
 
 # Install development dependencies
-RUN cd /opt/api_gateway_exporter && bundle
+RUN cd /opt/api_gateway_exporter && bundle install --with test development
 
 # These will be mounted from developers' localhosts in dockerfile-yml
 RUN rm -rfd /opt/api_gateway_exporter
