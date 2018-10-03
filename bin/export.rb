@@ -48,19 +48,20 @@ logger.info("Cloning #{ENV['EXPORT_GIT_URL']} to #{WORKSPACE_DIR}")
 # Thar be psudocode below
 stages.each do |stage|
   api_gateway_client = get_agent(stage)
-  path_to_stage_export = File.join(FULL_PATH_TO_REPO_DIR, "#{stage['name']}.json")
+  file_name = "#{stage['name']}.json"
+  path_to_stage_export = File.join(FULL_PATH_TO_REPO_DIR, file_name)
+  export = get_export_for(stage, api_gateway_client)
+
   if !File.exist?(path_to_stage_export)
-    logger.info("#{path_to_stage_export}.json doesn't exist, saving first copy")
-    export = get_export_for(stage, api_gateway_client)
+    logger.info("#{file_name} doesn't exist. Saving first copy.")
     write_and_commit(stage: stage, export_string: export, path_to_file: path_to_stage_export)
   else
-    logger.info("#{path_to_stage_export}.json exists. Checking to see if it's been updated since last run")
-    # if different?
-    #   logger.info("#{filename} has changed, comitting changes")
-    #   write file
-    #   add/commit/push
-    # else
-    #   logger.info("#{filename} has not changed since last run")
-    # end
+    if JSON.parse(File.read(path_to_stage_export)) == JSON.parse(export)
+      logger.info("#{file_name} has not changed since last run")
+      # write file
+      # add/commit/push
+    else
+      logger.info("#{file_name} has changed, comitting changes")
+    end
   end
 end
