@@ -36,7 +36,7 @@ def get_export_for(stage, api_gateway_client)
 end
 
 def write_and_commit(options = {})
-  File.open(options[:path_to_file], 'w') {|f| f.write(options[:export_string]) }
+  File.open(options[:path_to_file], 'w') { |f| f.write(options[:export_string]) }
   `cd #{FULL_PATH_TO_REPO_DIR} && git add #{File.basename(options[:path_to_file])} && git commit -am 'Updating contents of #{File.basename(options[:path_to_file], '.*')}.json'`
   # `cd #{FULL_PATH_TO_REPO_DIR} && git push origin master`
 end
@@ -58,8 +58,6 @@ stages.each do |stage|
   else
     if JSON.parse(File.read(path_to_stage_export)) == JSON.parse(export)
       logger.info("#{file_name} has not changed since last run")
-      # write file
-      # add/commit/push
     else
       logger.info("#{file_name} has changed, comitting changes")
     end
