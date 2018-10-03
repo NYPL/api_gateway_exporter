@@ -17,16 +17,19 @@ This app can be called by a scheduler and:
 ### Debugging
 
 You can run the container and use pry.
-To get into the container run `docker-compose run gateway_exporter bash`.  
-Then, inside the container: `cd /opt/api_gateway_exporter && ./bin/export.rb`
+
+1. To get into the container run `docker-compose run gateway_exporter bash`.  
+2. Then, _inside the container_: `cd /opt/api_gateway_exporter && ./bin/export.rb`
 
 ## Deployment
 
 Build args:
 
-| Name            | Description                                                               |
-|:----------------|:--------------------------------------------------------------------------|
-| SSH_PRIVATE_KEY | base64 encoded content of private key that can clone the `EXPORT_GIT_URL` |
+| Name            | Description                                                                                        |
+|:----------------|:---------------------------------------------------------------------------------------------------|
+| SSH_PRIVATE_KEY | base64 encoded content of private key that can clone the `EXPORT_GIT_URL`                          |
+| GIT_USERNAME    | The user name that will be tied to the git commit (This doesn't have to be a real GitHub user)     |
+| GIT_USER_EMAIL  | The email address that will be tied to the git commit (This doesn't have to be a real GitHub user) |
 
 ## Stretch Goals
 

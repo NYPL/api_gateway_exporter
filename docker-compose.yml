@@ -6,7 +6,9 @@ services:
       dockerfile: Dockerfile
       target: development
       args:
-        - SSH_PRIVATE_KEY="dGhpcy1tZWFucy1ub3RoaW5nLWluLWRldmVsb3BtZW50LXlvdXItc3NoLWRpci13aWxsLW1vdW50LXRvLXRoZS1jb250YWluZXIK"
+        SSH_PRIVATE_KEY: dGhpcy1tZWFucy1ub3RoaW5nLWluLWRldmVsb3BtZW50LXlvdXItc3NoLWRpci13aWxsLW1vdW50LXRvLXRoZS1jb250YWluZXIK
+        GIT_USERNAME: nypl/api_gateway_exporter
+        GIT_USER_EMAIL: api_gateway_exporter@nypl.org
     env_file:
       - ./.env
     volumes:
