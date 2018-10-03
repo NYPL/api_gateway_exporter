@@ -10,7 +10,7 @@ This app can be called by a scheduler and:
 
 ### Installing
 
-1.  `cp .env.example .env`
+1.  `cp .env.example .env` and fill it out.
 2.  `docker-compose build`
 3.  `docker-compose up`
 
@@ -27,13 +27,17 @@ Development / Local configuration is governed by [docker-compse.yml](./docker-co
 
 ## Deployment
 
-Required Build args:
+### Required Build ARGs
 
 | Name            | Description                                                                                        |
 |:----------------|:---------------------------------------------------------------------------------------------------|
 | SSH_PRIVATE_KEY | base64 encoded content of private key that can clone the `EXPORT_GIT_URL`                          |
 | GIT_USERNAME    | The user name that will be tied to the git commit (This doesn't have to be a real GitHub user)     |
 | GIT_USER_EMAIL  | The email address that will be tied to the git commit (This doesn't have to be a real GitHub user) |
+
+### Required Environment Variables (runtime)
+
+See [.env.example](./.env.example).
 
 ## Stretch Goals
 
