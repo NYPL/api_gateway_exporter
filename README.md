@@ -21,9 +21,13 @@ You can run the container and use pry.
 1. To get into the container run `docker-compose run gateway_exporter bash`.  
 2. Then, _inside the container_: `cd /opt/api_gateway_exporter && ./bin/export.rb`
 
+### Development vs Production Builds
+
+Development / Local configuration is governed by [docker-compse.yml](./docker-compse.yml)
+
 ## Deployment
 
-Build args:
+Required Build args:
 
 | Name            | Description                                                                                        |
 |:----------------|:---------------------------------------------------------------------------------------------------|

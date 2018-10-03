@@ -1,3 +1,7 @@
+# 1.  This sets sensible build args.
+# 2.  The value of SSH_PRIVATE_KEY is nonsense though in development we mount your local
+#     ~/.ssh to the container's to use the developer's private key.
+# 3.  This also mounts pwd into the container so you can develop locally, but test inside the container.
 version: '3.4'
 services:
   gateway_exporter:
