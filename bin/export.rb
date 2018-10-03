@@ -38,7 +38,7 @@ end
 def write_and_commit(options = {})
   File.open(options[:path_to_file], 'w') { |f| f.write(options[:export_string]) }
   `cd #{FULL_PATH_TO_REPO_DIR} && git add #{File.basename(options[:path_to_file])} && git commit -am 'Updating contents of #{File.basename(options[:path_to_file], '.*')}.json'`
-  # `cd #{FULL_PATH_TO_REPO_DIR} && git push origin master`
+  `cd #{FULL_PATH_TO_REPO_DIR} && git push origin master`
 end
 
 # Clone the git repo where the backups are stored
