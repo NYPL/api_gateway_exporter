@@ -13,7 +13,7 @@ FULL_PATH_TO_REPO_DIR = File.join(WORKSPACE_DIR, repository_dir_name)
 stages = JSON.parse(ENV['STAGES'])
 
 # A factory method that returns an Aws::APIGateway::Client configured with the correct
-# region and auth credentials
+# region and auth credentials (Will use roles if credentials are omitted)
 def get_agent(stage)
   options = { region: stage['region'] || 'us-east-1' }
   %w[access_key_id secret_access_key].each do |param|
