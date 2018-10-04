@@ -29,11 +29,14 @@ Development / Local configuration is governed by [docker-compse.yml](./docker-co
 
 ### Required Build ARGs
 
-| Name            | Description                                                                                        |
-|:----------------|:---------------------------------------------------------------------------------------------------|
-| SSH_PRIVATE_KEY | base64 encoded content of private key that can clone the `EXPORT_GIT_URL`                          |
-| GIT_USERNAME    | The user name that will be tied to the git commit (This doesn't have to be a real GitHub user)     |
-| GIT_USER_EMAIL  | The email address that will be tied to the git commit (This doesn't have to be a real GitHub user) |
+| Name             | Description                                                                                        |
+|:-----------------|:---------------------------------------------------------------------------------------------------|
+| SSH_PRIVATE_KEY^ | base64 encoded content of private key that can clone the `EXPORT_GIT_URL`                          |
+| GIT_USERNAME     | The user name that will be tied to the git commit (This doesn't have to be a real GitHub user)     |
+| GIT_USER_EMAIL   | The email address that will be tied to the git commit (This doesn't have to be a real GitHub user) |
+
+
+^: NYPL folks, we keep this in parameter store at `/production/ssh-keys/api-gateway-exporter`
 
 ### Required Environment Variables (runtime)
 
