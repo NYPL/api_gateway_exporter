@@ -19,6 +19,7 @@ RUN mkdir /root/.ssh/
 RUN echo "${SSH_PRIVATE_KEY}" | base64 -w 0 -i --decode > /root/.ssh/id_rsa
 RUN chmod 400 /root/.ssh/id_rsa
 RUN touch /root/.ssh/known_hosts
+RUN /usr/bin/ssh-keyscan github.com >> /root/.ssh/known_hosts
 
 # Setup Git
 RUN /usr/bin/git config --global user.name "${GIT_USERNAME}"
