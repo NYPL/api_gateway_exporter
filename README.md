@@ -18,8 +18,8 @@ This app can be called by a scheduler and:
 
 You can run the container and use pry.
 
-1. To get into the container run `docker-compose run gateway_exporter bash`.  
-2. Then, _inside the container_: `cd /opt/api_gateway_exporter && ./bin/export.rb`
+1.  To get into the container run `docker-compose run gateway_exporter bash`.  
+2.  Then, _inside the container_: `cd /opt/api_gateway_exporter && ./bin/export.rb`
 
 ### Development vs Production Builds
 
@@ -35,8 +35,14 @@ Development / Local configuration is governed by [docker-compse.yml](./docker-co
 | GIT_USERNAME     | The user name that will be tied to the git commit (This doesn't have to be a real GitHub user)     |
 | GIT_USER_EMAIL   | The email address that will be tied to the git commit (This doesn't have to be a real GitHub user) |
 
-
 ^: NYPL folks, we keep this in parameter store at `/production/ssh-keys/api-gateway-exporter`
+
+### Example CI / CD Integration
+
+[build_and_push_to_ecr.sh](./provisioning/travis_ci_and_cd/build_and_push_to_ecr.sh) and [.travis.tml](.travis.yml)
+show how we build & push new images upon commit to master.
+
+As of now - we still manually create ECS task definitions & [scheduled tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduled_tasks.html).
 
 ### Required Environment Variables (runtime)
 

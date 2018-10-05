@@ -18,7 +18,7 @@ if [ -z "$TRAVIS_PULL_REQUEST" ] || [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
     LOCAL_TAG_NAME=api_gateway_exporter:$TRAVIS_BRANCH-latest
     REMOTE_FULL_URL=$DOCKER_REPO_URL:$TRAVIS_BRANCH-latest
 
-    docker build --build-arg SSH_PRIVATE_KEY=$SSH_PRIVATE_KEY --target production --tag $LOCAL_TAG_NAME .
+    docker build --build-arg GIT_USERNAME=$GIT_USERNAME --build-arg GIT_USERNAME=$GIT_USERNAME --build-arg SSH_PRIVATE_KEY=$SSH_PRIVATE_KEY --target production --tag $LOCAL_TAG_NAME .
     echo "Pushing $LOCAL_TAG_NAME"
     docker tag $LOCAL_TAG_NAME "$REMOTE_FULL_URL"
     docker push "$REMOTE_FULL_URL"
