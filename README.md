@@ -37,16 +37,16 @@ Development / Local configuration is governed by [docker-compse.yml](./docker-co
 
 ^: NYPL folks, we keep this in parameter store at `/production/ssh-keys/api-gateway-exporter`
 
+### Required Environment Variables (runtime)
+
+See [.env.example](./.env.example).
+
 ### Example CI / CD Integration
 
 [build_and_push_to_ecr.sh](./provisioning/travis_ci_and_cd/build_and_push_to_ecr.sh) and [.travis.tml](.travis.yml)
 show how we build & push new images upon commit to master.
 
 As of now - we still manually create ECS task definitions & [scheduled tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduled_tasks.html).
-
-### Required Environment Variables (runtime)
-
-See [.env.example](./.env.example).
 
 ## Stretch Goals
 
