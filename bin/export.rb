@@ -59,6 +59,7 @@ stages.each do |stage|
     if JSON.parse(File.read(path_to_stage_export)) == JSON.parse(export)
       logger.info("#{file_name} has not changed since last run")
     else
+      write_and_commit(stage: stage, export_string: export, path_to_file: path_to_stage_export)
       logger.info("#{file_name} has changed, comitting changes")
     end
   end
